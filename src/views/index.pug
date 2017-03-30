@@ -1,0 +1,50 @@
+extends layouts/base-layout
+include mixins/joining
+include mixins/loose
+include mixins/success
+include mixins/unjoin
+block append style
+  style.
+        .ui.medium.image {
+            width: 100%;
+        }
+        .divider-sm {
+            height: 20px !important;
+            background: rgba(22, 22, 66, .1);
+        }
+        .divider-middle {
+            height: 40px !important;
+            background: rgba(22, 22, 66, .1);
+        }
+
+        .divider-lg {
+            height: 80px !important;
+            background: rgba(22, 22, 66, .1);
+        }
+        .menu {
+            background: rgba(255, 255, 255, 0.4) !important;
+            position: fixed;
+            bottom: 0;
+        }
+block append content
+  case record.state
+    when 0
+      +unjoin()
+    when 1
+      +joining()
+    when 2
+      +success(user,record.toUser,record)
+    when 3
+      +loose()
+  .ui.two.item.menu
+    a.item 主页
+    a.item  我的
+  .ui.divider-lg
+block append script
+  script(src='/scripts/index.js')
+  script.
+    $('.shape').shape();
+    setInterval(function(){
+      $('.shape').shape('flip right');
+    },3000);
+    $('.cookie.nag').nag('show')

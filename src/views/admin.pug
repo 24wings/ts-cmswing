@@ -1,0 +1,30 @@
+extends layouts/base-layout
+include mixins/list
+block append content
+    .ui.grid
+        .eight.wide.column
+            +list(boys)
+        .eight.wide.column
+            +list(girls)
+    form(method='POST')
+        h3.ui.header.text-center
+            .ui.buttons
+                button.ui.primary.button(type='submit') 匹配
+    if loose
+        h1 落选名单
+        .ui.grid
+            .eight.wide.column
+                +list(loose.boys)
+            .eight.wide.column
+                +list(loose.girls)
+block append script
+    script(src='libs/table.sort.min.js')
+    script.
+        function deleteUser(userId){
+                $.ajax('/user/'+userId,{
+                    method:'DELETE',
+                    success:function(){
+                        location.reload();
+                    }
+                })
+        }

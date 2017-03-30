@@ -1,0 +1,16 @@
+mixin list(users)
+    if users
+        table.ui.celled.table
+            thead
+                tr
+                    th 名字
+                    th 性别
+                    th.age 年龄
+                    th 操作
+            tbody
+                each user  in users
+                    tr
+                        td.no-sort #{user.name}
+                        td.no-sort #{user.gender}
+                        td(data-sort-value=user.age) #{user.age}
+                        td.no-sort: button.negative.ui.button(onclick="deleteUser('"+user._id+"')") 删除

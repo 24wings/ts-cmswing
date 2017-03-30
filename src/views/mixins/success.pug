@@ -1,0 +1,29 @@
+mixin success(user,toUser,record) 
+  .ui.shape.auto
+    .sides
+      .side
+        img(src='http://teach.wanviv.com:8888/images/33.jpg').ui.medium.image
+      .side.active
+        img(src='http://teach.wanviv.com:8888/images/22.jpg').ui.medium.image
+      .side
+        img(src='http://teach.wanviv.com:8888/images/11.jpg').ui.medium.image
+  h4.ui.header.text-center 恭喜你,与#{toUser.name}匹配成为情侣
+  h3.ui.header.text-center
+    .ui.labeled.button
+      .ui.red.button
+        i.heart.icon 
+        | 恋人
+      a.ui.basic.red.left.pointing.label  90分
+  h4.ui.header.text-center: img.ui.medium.circular.image(src="https://semantic-ui.com/images/wireframe/square-image.png")
+  h4.ui.header 七天恋爱第一天
+  h4.ui.header.text-center 任务1:
+  h5.ui.header.text-center 对方发一段走心的自我介绍,包括最近正在忙的一件事情
+  h4.ui.header.text-center 任务2:
+  h5.ui.header.text-center 对方发一段走心的自我介绍,包括最近正在忙的一件事情
+  h4.ui.header.text-center 任务3:
+  h5.ui.header.text-center 对方发一段走心的自我介绍,包括最近正在忙的一件事情
+  h3.ui.header 任务打卡
+  h4.ui.header 每天的任务早上8点发放。请在次日早上八点之前完成任务。
+  h5.ui.header 完成任务后记得打卡，并将聊天记录截屏上传完成打卡！
+  h3.ui.header.text-center: button.ui.pink.button(style="border-radius:50px;") 点击上传任务
+  .ui.divider-lg

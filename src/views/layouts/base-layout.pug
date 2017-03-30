@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        title 后台管理系统
+        meta(content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",name="viewport")
+        //- link(rel='stylesheet',href='/libs/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet',href='/node_modules/semantic-ui/dist/semantic.min.css')
+        link(rel='stylesheet',href='/app.css')
+        block style
+    body     
+        //-  正确信息,错误
+        if success
+            .flash
+                .ui.green.message
+                    i.close.icon 
+                    | #{success}
+        if error
+            .flash
+                .ui.red.message
+                    i.close.icon
+                    | #{error}
+
+
+        block content
+        block foot
+        block script
+            script(src='/node_modules/jquery/dist/jquery.min.js')
+            //- script(src="/libs/bootstrap/dist/js/bootstrap.min.js")
+            script(src='/node_modules/semantic-ui/dist/semantic.min.js')
+
+        block myScript
+            
